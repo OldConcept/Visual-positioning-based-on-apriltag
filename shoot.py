@@ -1,3 +1,10 @@
+'''
+Author: OldConcept
+Date: 2020-12-04 22:58:11
+LastEditors: OldConcept
+LastEditTime: 2020-12-05 02:10:26
+FilePath: \py\rm_server\shoot.py
+'''
 import apriltag
 import cv2 as cv
 import numpy as np
@@ -57,9 +64,11 @@ def fire():
     GPIO.output(18, GPIO.LOW)
     
 def shoot_byorder(s_order):
-    shoot_order=s_order
+    shoot_order = s_order
+    
     global pwm_x_flag
     global pwm_y_flag
+
     while cap.isOpened():
         if(len(shoot_order)==0):
             break
@@ -113,6 +122,6 @@ def shoot_byorder(s_order):
                     pwm_x_flag = 0
                     pwm_y_flag = 0
         cv.imshow('capture', frame)
-shoot_byorder([1,2,3])
+
 cap.release()
 cv.destroyAllWindows()
